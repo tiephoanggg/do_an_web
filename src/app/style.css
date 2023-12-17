@@ -1,0 +1,11 @@
+.bg-home {
+  background-image: url(../../public/img/MaskGroup.png);
+}
+.hv-project:hover .hv-img {
+  opacity: 0.3;
+  transition: 0.5s ease;
+}
+.hv-project:hover .hv-box {
+  opacity: 1;
+  transition: 0.5s ease;
+}
