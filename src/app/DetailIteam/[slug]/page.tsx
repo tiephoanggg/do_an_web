@@ -252,7 +252,7 @@ function DetailIteam(props: any) {
                   
                   justifyContent={"center"}
                 />
-                {/* dsvdgdgfdgdfgdfg */}
+                {/* dsvdgdgfdgdfgdfg */} 
                 <NumberInput
                  
                   onChange={(event, val) => setQuantity(val)}
