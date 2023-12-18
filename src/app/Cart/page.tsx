@@ -117,38 +117,43 @@ function Cart() {
     }
   }, []);
   const handleGetCart = async () => {
+    console.log('-==============: ')
     axios
       .get(`http://localhost:4000/v4/user/viewAllLikedProduct`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(function (res) {
         // handle success
+        console.log('tiepres1: ',res.data.likedProducts);
         const dataFill = res.data.likedProducts.map((item: any) => {
           return {
-            key: item.productId._id,
-            name: item.productId.name,
-            price: item.productId.price.toLocaleString("de-DE"),
-            quantity: item.productId.quantity,
-            color: item.color.toLowerCase(), // Convert to lowercase as per your example
-            size: item.size,
-            images: item.productId.images,
+            key: item?.productId?._id,
+            name: item?.productId?.name,
+            price: item?.productId?.price.toLocaleString("de-DE"),
+            quantity: item?.productId?.quantity,
+            color: item?.color?.toLowerCase(), // Convert to lowercase as per your example
+            size: item?.size,
+            images: item?.productId?.images,
           };
         });
-        const dataFillPay = res.data.likedProducts.map((item: any) => {
+        const dataFillPay = res.data.likedProducts?.map((item: any) => {
           return {
-            idProduct: item.productId._id,
-            price: item.productId.price,
-            quantity: item.productId.quantity,
-            color: item.color,
-            size: item.size,
+            idProduct: item?.productId?._id,
+            price: item?.productId?.price,
+            quantity: item?.productId?.quantity,
+            color: item?.color,
+            size: item?.size,
           };
         });
+        console.log('tiepres1: ',res.data.likedProducts);
+        //console.log('tiep=====1: ',dataFillPay)
+        //console.log('tiep=====2: ',dataFill)
         setDataCartPay(dataFillPay);
         setDataCart(dataFill);
       })
       .catch(function (error) {
         // handle error
-        console.log(error);
+        console.log("error error: ", error);
       });
   };
   const handleVoucher = async () => {
@@ -179,11 +184,11 @@ function Cart() {
         data: payload,
       })
       .then((res) => {
-        console.log(res);
+        console.log('res: ',res);
         handleGetCart();
       })
       .catch((err) => {
-        console.log(err);
+        console.log('err: ====: ', err);
       });
   };
   const columns: ColumnsType<DataType> = [
@@ -193,7 +198,7 @@ function Cart() {
       dataIndex: "product",
       render: (_, { images }) => (
         <>
-          {images.map((image) => {
+          {images?.map((image) => {
             return (
               <Image key={image} width="210" height="210" src={image} alt="" />
             );
