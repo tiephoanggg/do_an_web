@@ -124,13 +124,13 @@ function Cart() {
       })
       .then(function (res) {
         // handle success
-        console.log('tiepres1: ',res.data.likedProducts);
+        console.log('tiepres1: ',res.data.likedProducs);
         const dataFill = res.data.likedProducts.map((item: any) => {
           return {
             key: item?.productId?._id,
             name: item?.productId?.name,
             price: item?.productId?.price.toLocaleString("de-DE"),
-            quantity: item?.productId?.quantity,
+            quantity: item?.quantity,
             color: item?.color?.toLowerCase(), // Convert to lowercase as per your example
             size: item?.size,
             images: item?.productId?.images,
@@ -140,7 +140,7 @@ function Cart() {
           return {
             idProduct: item?.productId?._id,
             price: item?.productId?.price,
-            quantity: item?.productId?.quantity,
+            quantity: item?.quantity,
             color: item?.color,
             size: item?.size,
           };

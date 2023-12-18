@@ -29,6 +29,7 @@ function DetailIteam(props: any) {
   const router = useRouter();
   const [valueSize, setValueSize] = useState<any>("");
   const [valueColor, setValueColor] = useState<any>("");
+  const [quantity, setQuantity] = useState<any>(1);
   const [favorite, setFavorite] = useState<boolean>(true);
   const [dataDetail, setDatadetail] = useState<any>({
     images: [],
@@ -88,6 +89,7 @@ function DetailIteam(props: any) {
       productId: props.params.slug,
       size: valueSize,
       color: valueColor,
+      quantity
     };
     if (storedToken) {
       getAddTocard(value);
@@ -247,10 +249,14 @@ function DetailIteam(props: any) {
                 <Boxcustom
                   Contents={"Số lượng"}
                   size={140}
+                  
                   justifyContent={"center"}
                 />
                 {/* dsvdgdgfdgdfgdfg */}
                 <NumberInput
+                 
+                  onChange={(event, val) => setQuantity(val)}
+                  value={quantity}
                   aria-label="Quantity Input"
                   min={1}
                   defaultValue={1}
