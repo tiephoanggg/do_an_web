@@ -8,7 +8,7 @@ function TopList() {
   const [dataTopList, setDataTopList] = useState<any>([
     {
       images: [ImgItem],
-      name: "Thit chó",
+      name: "Loading!!!",
       price: 300000,
       sizes: ["S", "M", "L", "XL"],
       id: 1,
@@ -46,7 +46,7 @@ function TopList() {
         {dataTopList.map((item: any) => (
           <Grid key={item.id} item xs={2}>
             <ItemDefault
-              img={item.images[0]}
+              img={item && item.images? item.images[0]:''}
               name={item.name}
               price={item.price}
               size={item.sizes}

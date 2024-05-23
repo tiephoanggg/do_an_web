@@ -8,7 +8,7 @@ function NewList() {
   const [dataNewList, setDataNewList] = useState<any>([
     {
       images: [ImgItem],
-      name: "Thit chó",
+      name: "Loading!!!",
       price: 300000,
       sizes: ["S", "M", "L", "XL"],
       id: 1,

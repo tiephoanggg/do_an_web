@@ -62,7 +62,7 @@ function DetailIteam() {
                 justifyContent={"center"}
               />
               <Boxcustom
-                Contents={"Thịt chó"}
+                Contents={"Loading!!"}
                 size={400}
                 justifyContent={"left"}
               />
